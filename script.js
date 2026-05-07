@@ -14,7 +14,6 @@
     flower1:    { w: 90, h: 90 },
     flower4:    { w: 90, h: 90 },
     dragonfly:  { w: 75, h: 75 },
-    berry:      { w: 65, h: 65 },
     mangosteen: { w: 70, h: 70 },
     pepper:     { w: 65, h: 65 },
   };
@@ -106,7 +105,7 @@
   placed.push(posF4);
   applyPos('flower4', posF4);
 
-  ['dragonfly', 'berry', 'mangosteen', 'pepper'].forEach(id => {
+  ['dragonfly', 'mangosteen', 'pepper'].forEach(id => {
     const { w, h } = SIZES[id];
     const pos = safePos(w, h, placed);
     placed.push(pos);

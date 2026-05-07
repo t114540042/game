@@ -34,7 +34,7 @@ body {
   position: relative;
   width: 960px;
   height: 540px;
-  background-image: url('Picture/bg.png');
+  background-image: url('bg.png');
   background-size: cover;
   background-position: center top;
   overflow: hidden;
@@ -65,7 +65,6 @@ body {
 #flower1    { width: 90px; }
 #flower4    { width: 90px; }
 #dragonfly  { width: 75px; }
-#berry      { width: 65px; }
 #mangosteen { width: 70px; }
 #pepper     { width: 65px; }
 
