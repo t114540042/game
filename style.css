@@ -1,0 +1,136 @@
+/* ================================
+   蜜蜂授粉遊戲 - 版面配置樣式
+   ================================ */
+
+/* --- 全域重設 --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1b2a1b;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+/* --- 外層置中容器 --- */
+#game-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- 遊戲主容器（固定 16:9）--- */
+#game-container {
+  position: relative;
+  width: 960px;
+  height: 540px;
+  background-image: url('Picture/bg.png');
+  background-size: cover;
+  background-position: center top;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* --- 遊戲物件通用樣式 --- */
+.game-obj {
+  position: absolute;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ================================
+   各物件位置設定
+   （百分比相對於 960×540 容器）
+   ================================ */
+
+/* 蜜蜂：初始位置與 transform 由 script.js 控制 */
+#bee {
+  width: 85px;
+}
+
+/* 粉色花、紅色花、蜻蜓、草莓、山竹、辣椒 */
+/* 位置由 script.js 每次隨機決定，此處只設定顯示大小 */
+#flower1    { width: 90px; }
+#flower4    { width: 90px; }
+#dragonfly  { width: 75px; }
+#berry      { width: 65px; }
+#mangosteen { width: 70px; }
+#pepper     { width: 65px; }
+
+/* ================================
+   方向鍵控制區（D-Pad 十字）
+   固定在右下角，與遊戲物件區分離
+   ================================ */
+
+#controls {
+  position: absolute;
+  right: 2.5%;
+  bottom: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+
+  /* 視覺隔離：半透明底板 */
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+  padding: 8px;
+  backdrop-filter: blur(4px);
+}
+
+/* 中列（左 + 右）水平排列 */
+#dpad-middle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
+}
+
+/* 每個方向按鈕格 */
+.dpad-btn {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.1s, transform 0.1s;
+}
+
+/* 按下時的視覺反饋 */
+.dpad-btn:active {
+  background: rgba(255, 255, 255, 0.45);
+  transform: scale(0.88);
+}
+
+/* 箭頭圖示：讓點擊穿透到父層 .dpad-btn */
+.arrow {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;  /* 點擊事件交給父層 .dpad-btn 處理 */
+  display: block;
+}
+
+/* 旋轉四個方向（arrow.png 原始方向為朝右）*/
+#arrow-up    { transform: rotate(-90deg); }
+#arrow-right { transform: rotate(0deg);  }
+#arrow-down  { transform: rotate(90deg); }
+#arrow-left  { transform: rotate(180deg);}
