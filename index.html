@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>蜜蜂授粉遊戲</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="game-wrapper">
+    <div id="game-container">
+
+      <!-- ===== 遊戲物件區（森林場景）===== -->
+
+      <!-- 蜜蜂：最左邊，垂直置中 -->
+      <img id="bee" class="game-obj" src="bee.png" alt="蜜蜂">
+
+      <!-- 粉色花（flower1） -->
+      <img id="flower1" class="game-obj" src="flower1.png" alt="粉色花">
+      <img id="ok1" class="ok-mark" src="ok.png" alt="ok">
+
+      <!-- 紅色花（Flower-4） -->
+      <img id="flower4" class="game-obj" src="Flower-4.png" alt="紅色花">
+      <img id="ok4" class="ok-mark" src="ok.png" alt="ok">
+
+      <!-- 蜻蜓：中央偏上 -->
+      <img id="dragonfly" class="game-obj" src="dragonfly.png" alt="蜻蜓">
+
+      <!-- 山竹：左中上方 -->
+      <img id="mangosteen" class="game-obj" src="Mangosteen.png" alt="山竹">
+
+      <!-- 辣椒：右下草地 -->
+      <img id="pepper" class="game-obj" src="pepper.png" alt="辣椒">
+
+      <!-- ===== 方向鍵控制區（獨立於遊戲物件，右下角）===== -->
+      <div id="controls">
+        <!-- 上 -->
+        <div id="btn-up" class="dpad-btn">
+          <img src="arrow.png" alt="上" id="arrow-up" class="arrow">
+        </div>
+        <!-- 中列：左 + 右 -->
+        <div id="dpad-middle">
+          <div id="btn-left" class="dpad-btn">
+            <img src="arrow.png" alt="左" id="arrow-left" class="arrow">
+          </div>
+          <div id="btn-right" class="dpad-btn">
+            <img src="arrow.png" alt="右" id="arrow-right" class="arrow">
+          </div>
+        </div>
+        <!-- 下 -->
+        <div id="btn-down" class="dpad-btn">
+          <img src="arrow.png" alt="下" id="arrow-down" class="arrow">
+        </div>
+      </div>
+
+      <!-- 碰到蜻蜓倒數畫面 -->
+      <div id="countdown-screen">
+        <div id="countdown-box">
+          <div id="countdown-emoji">🪲</div>
+          <div id="countdown-number">3</div>
+          <div id="countdown-label">秒後繼續</div>
+        </div>
+      </div>
+
+      <!-- 授粉成功提示畫面 -->
+      <div id="success-screen">
+        <div id="success-box">
+          <div id="success-emoji">🌸</div>
+          <h1 id="success-title">授粉成功！</h1>
+          <p id="success-msg">蜜蜂已將花粉傳送兩朵花庄！🐝</p>
+        </div>
+      </div>
+
+    </div><!-- end #game-container -->
+  </div><!-- end #game-wrapper -->
+
+  <script src="script.js"></script>
+</body>
+</html>
